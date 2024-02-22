@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 class Main{
@@ -60,5 +59,7 @@ class Main{
 
 
         if(System.out.printf("Parivalavan")==null){}
+    sc.close();
+
     }
 }

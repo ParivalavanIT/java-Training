@@ -10,5 +10,6 @@ public class EverOrOdd {
         }else{
             System.out.println("The given number is odd number");
         }
+        sc.close();
     }
 }
