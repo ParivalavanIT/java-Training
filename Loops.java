@@ -5,5 +5,10 @@ public class Loops {
         System.out.println("JAVA");
         a++;
        }
+       a=0;
+       do {
+        System.out.println("JAVA");
+        a++;
+       } while (a<5);
     }
 }
