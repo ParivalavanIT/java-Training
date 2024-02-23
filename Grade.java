@@ -13,5 +13,6 @@ public class Grade {
             default:
                 break;
         }
+        sc.close();
     }
 }

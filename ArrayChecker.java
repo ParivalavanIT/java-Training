@@ -32,7 +32,7 @@ public class ArrayChecker {
         }
         flag =0;
         for (int i = 0; i < size; i++) {
-            for(int j=0;i < size; i++){
+            for(int j=0;i < size; j++){
                 if (arr[i] < arr1[j]) {
                     flag++;
                     break;
@@ -45,5 +45,6 @@ public class ArrayChecker {
         else{
             System.out.println("The given arrays are not compatible");
         }
+        sc.close();
     }
 }
