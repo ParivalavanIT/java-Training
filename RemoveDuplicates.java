@@ -1,6 +1,5 @@
 import java.util.Scanner;
 import java.util.Arrays;
-
 public class RemoveDuplicates {
     public static int arrayLength(int[] arr){
         int length=0;
