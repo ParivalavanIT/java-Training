@@ -19,5 +19,6 @@ public class DistinctCount {
         }
         
         System.out.printf("The Sum of Distinct elements in array is \"%d\"",distinctSum+arr[size-1]);
+        sc.close();
     }
 }

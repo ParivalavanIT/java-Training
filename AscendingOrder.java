@@ -28,5 +28,6 @@ public class AscendingOrder {
             arr[i] = sc.nextInt();
         }
         bubbleSort(arr, size);
+        sc.close();
     }
 }

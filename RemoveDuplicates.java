@@ -26,5 +26,6 @@ public class RemoveDuplicates {
             }
         }
         System.out.printf("%d", arr[size - 1]);
+        sc.close();
     }
 }
