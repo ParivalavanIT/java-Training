@@ -14,9 +14,9 @@ public class OddSumAndEvenSum{
         int evenSum=0;
         for (int i = 0; i < size; i++) {
             if(arr[i] % 2==0){
-                evenSum= evenSum + arr[i];
+                evenSum = evenSum + arr[i];
             }else{
-                oddSum= oddSum + arr[i];
+                oddSum = oddSum + arr[i];
             }
         }
         System.out.printf("The Sum of all Odd numbers in this array is \"%d\"\n", oddSum);
