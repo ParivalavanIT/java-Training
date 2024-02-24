@@ -18,7 +18,6 @@ public class SpiralMatrix {
             }
             colStart++;
         }
-        
         if(rowStart <= rowEnd && colStart <= colEnd){
             spiralMatrixPrint(rowStart,rowEnd,colStart,colEnd,arr);
         }
