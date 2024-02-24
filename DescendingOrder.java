@@ -1,23 +1,30 @@
 import java.util.Scanner;
 
 public class DescendingOrder {
+    public static int arrayLength(int[] arr) {
+        int length = 0;
+        for (int i : arr) {
+            length++;
+        }
+        return length;
+    }
     public static void swap(int[] arr, int i,int j){
         int temp = arr[i];
         arr[i]=arr[j];
         arr[j]=temp;
     }
     public static void descendingBubbleSort(int arr[]){
-        for(int i=0;i < arr.length;i++){
-            for(int j=i+1;j<arr.length;j++){
-                if(arr[i]<arr[j]){
+        for(int i=0;i < arrayLength(arr);i++){
+            for(int j=i+1;j<arrayLength(arr);j++){
+                if(arr[i] < arr[j]){
                     swap(arr, i, j);
                 }
             }
         }
     }
     public static void display(int[] arr){
-        for(int i=0;i<arr.length;i++){
-            if(i==arr.length-1){
+        for(int i=0;i<arrayLength(arr);i++){
+            if(i==arrayLength(arr)-1){
                 System.out.print(arr[i]);
             }else{
             System.out.print(arr[i] + " --> ");
