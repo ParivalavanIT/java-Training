@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class RemoveDuplicates {
     public static int arrayLength(int[] arr){
         int length=0;
-        for(int i :arr){
+        for(int i : arr){
             length++;
         }
         return length;
@@ -18,7 +18,6 @@ public class RemoveDuplicates {
             arr[i] = sc.nextInt();
         }
         Arrays.sort(arr);
-        int j = 0;
         for (int i = 0; i < size - 1; i++) {
             if (arr[i] != arr[i + 1]) {
                 System.out.printf("%d ", arr[i]);
