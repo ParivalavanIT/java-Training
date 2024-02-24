@@ -31,6 +31,13 @@ public class DescendingOrder {
             }
         }
     }
+    public static int getSize(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the size of the array: ");
+        int size = sc.nextInt();
+        sc.close();
+        return size;
+    }
     public static void getElements(int[] arr,int size){
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the elements of the array with white space: ");
@@ -40,9 +47,7 @@ public class DescendingOrder {
         sc.close();
     }
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the size of the array: ");
-        int size = sc.nextInt();
+        int size = getSize();
         int[] arr = new int[size] ;
         getElements(arr,size);
         System.out.print("Before Sorting in descending order: ");
@@ -50,6 +55,6 @@ public class DescendingOrder {
         descendingBubbleSort(arr);
         System.out.print("\nAfter sorting in Descending order:  ");
         display(arr);
-        sc.close();
+        
     }
 }
