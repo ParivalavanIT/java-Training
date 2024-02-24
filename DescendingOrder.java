@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class DescendingOrder {
+    public static void swap(int[] arr, int i,int j){
+        int temp = arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+    }
+    public static void descendingBubbleSort(int arr[]){
+        for(int i=0;i < arr.length;i++){
+            for(int j=i+1;j<arr.length;j++){
+                if(arr[i]<arr[j]){
+                    swap(arr, i, j);
+                }
+            }
+        }
+    }
+    public static void display(int[] arr){
+        for(int i=0;i<arr.length;i++){
+            if(i==arr.length-1){
+                System.out.print(arr[i]);
+            }else{
+            System.out.print(arr[i] + " --> ");
+            }
+        }
+    }
+    public static void getElements(int[] arr,int size){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the elements of the array with white space: ");
+        for(int i=0;i<size;i++){
+            arr[i]=sc.nextInt();
+        }
+        sc.close();
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the size of the array: ");
+        int size = sc.nextInt();
+        int[] arr = new int[size] ;
+        getElements(arr,size);
+        System.out.print("Before Sorting in descending order: ");
+        display(arr);
+        descendingBubbleSort(arr);
+        System.out.print("\nAfter sorting in Descending order:  ");
+        display(arr);
+        sc.close();
+    }
+}
