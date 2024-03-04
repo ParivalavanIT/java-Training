@@ -35,6 +35,6 @@ public class SumOfDiagonal {
         }
         System.out.println("Sum of Sub Diagonal: "+subDiagonalSum);
 
-
+        sc.close();
     }
 }

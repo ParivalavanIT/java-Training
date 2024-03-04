@@ -7,73 +7,128 @@ class Node{
     } 
 } 
 class LList{
-    Node head;
-    public LList(){
-        this.head=null;
-    }
-    public void append(int data){
-        Node newNode =new Node(data);
+    Node head = null;
+    Node tail = null;
+    private static int size = 0;
 
+    // Insert the elements at the end of the linked list
+    void insert_end(int data){
+        Node node = new Node(data); // creating new node
         if(head==null){
-            head=newNode;
+            head = node;
+            tail = node;
+        }
+        else{
+            tail.next = node;
+            tail = tail.next;
+        }
+        size++;
+    }
+
+    // Insert the elements at the begining of the linked list
+    void insert_begin(int data){
+        Node node = new Node(data);
+        if(head == null){
+            head = node;
+            tail = node;
+        }
+        else{
+            node.next = head;
+            head = node;
+        }
+        size++;
+    }
+
+    // Insert the elements at the particulat index of the linked list
+    void insert_index(int data, int index){
+        if(index == 0){
+            insert_begin(data);
+        }
+        else if(index >= size){
+            insert_end(data);
+        }
+        else{
+            Node temp = head;
+            while(index>1 && temp!=null){
+                temp = temp.next;
+                index--;
+            }
+            Node node = new Node(data);
+            node.next = temp.next;
+            temp.next = node;
+            size++;
+        }
+    }
+
+    int delete(int index){
+        int val = -1;
+        if(index == 0){
+            val = head.data;
+            head = head.next;
+        }else if(index >= size){
+            return -1;
+        }else{
+            
+        }
+        size--;
+        return val;
+    }
+
+    int freq(int key){
+        Node temp = head;
+        int count =  0;
+        while(temp!=null){
+            if(temp.data == key){
+                count++;
+            }
+            temp = temp.next;
+        }
+        return count;
+    }
+
+    void display(){
+        Node temp = head;
+        while(temp != null){
+            if(temp==tail){
+            System.out.print(temp.data );
+            return;
+            }
+            System.out.print(temp.data + " --> ");
+            temp = temp.next;
+        }
+       
+    }
+    
+    void display_rev(){
+        display_rev(head);
+        System.out.println("null");
+    }
+
+    void display_rev(Node curr){
+        if(curr == null){
             return;
         }
-
-        Node last = head;
-
-        while(last.next!=null){
-            last=last.next;
-        }
-        last.next=newNode;
-
-    }
-    public void show(){
-        Node current=head;
-        if(current == null){
-            System.out.println("First insert the data");
-        }
-        while(current != null){
-            if(current.next==null){
-                System.out.println(current.data);
-            }else{
-                System.out.print(current.data + " --> ");
-            }
-            current=current.next;
-        }
         
+        display_rev(curr.next);
+        System.out.print(curr.data + " -> ");
     }
-    public void search(int key){
-        Node current = head;
-        if(current ==null ){
-            System.out.println("Your list is empty");
-        }
-        while(current != null){
-            if(current.data==key){
-                System.out.println("Element found");
-                return;
-            }
-            else{
-                current = current.next;
-            }
-        }
-        System.out.println("Element not found");
-    }
+    
 }
 public class LinkedList {
     public static void main(String[] args) {
         LList linkedList = new LList();
-        linkedList.show();
 
-        linkedList.append(10);
-        linkedList.append(30);
-        linkedList.append(40);
-        linkedList.append(50);
-        linkedList.append(60);
-        linkedList.append(70);
-        linkedList.append(80);
-        linkedList.search(40);
-
-        linkedList.show();
+        linkedList.insert_end(1);
+        linkedList.insert_end(2);
+        linkedList.insert_end(1);
+        linkedList.insert_end(1);
+        linkedList.insert_end(4);
+        linkedList.insert_end(5);
+        linkedList.display();
+        System.out.println("\n"+linkedList.freq(1));
+        int deletednum = linkedList.delete(2);
+        linkedList.display();
+        
 
     }
     
