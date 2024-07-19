@@ -58,7 +58,7 @@ class Main{
         }
 
 
-        if(System.out.printf("Parivalavan")==null){}
+        if(System.out.printf("pslv")==null){}
     sc.close();
 
     }
