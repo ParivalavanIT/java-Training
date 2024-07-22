@@ -55,32 +55,32 @@ public class Stack {
     }
 
     public static void main(String[] args) {
-        Stack s = new Stack(10);
-        if (s.isEmpty()) {
+        Stack stack = new Stack(10);
+        if (stack.isEmpty()) {
             System.out.println("Stack is Empty");
         } else {
             System.out.println("Stack is not Empty");
         }
-        s.push(1);
-        s.push(2);
-        s.push(3);
-        s.push(4);
-        s.push(5);
-        s.push(6);
-        s.push(7);
-        s.display();
-        if (s.isFull()) {
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.push(5);
+        stack.push(6);
+        stack.push(7);
+        stack.display();
+        if (stack.isFull()) {
             System.out.println("Stack is full");
         } else {
             System.out.println("Stack is not full");
         }
-        s.pop();
-        if (s.isFull()) {
+        stack.pop();
+        if (stack.isFull()) {
             System.out.println("Stack is full");
         } else {
             System.out.println("Stack is not full");
         }
-        s.display();
-        System.out.println(s.length);
+        stack.display();
+        System.out.println(stack.length);
     }
 }
