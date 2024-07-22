@@ -134,6 +134,22 @@ public class Main{
             temp = temp.next;
         }
     }
+    void display_rev(){
+        System.out.println();
+        Node temp = tail;
+        if(temp==null){
+            System.out.println("List Empty");
+        }
+        while(temp!=head.prev){
+            if(temp.prev == null){
+                System.out.print(temp.data);
+                return;
+            }
+            System.out.print(temp.data + " --> ");
+            temp = temp.prev;
+        }
+        System.out.println();
+    }
     public static void main(String[] args) {
         Main list = new Main();
         list.insert_begin(10);
@@ -161,6 +177,7 @@ public class Main{
         System.out.println();
         System.out.println(list.get(3));
         System.out.println(list.numAt(1200));
+        list.display_rev();
         list.kill();
         list.display();
     }
