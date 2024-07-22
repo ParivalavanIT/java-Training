@@ -60,20 +60,6 @@ class LList{
         }
     }
 
-    int delete(int index){
-        int val = -1;
-        if(index == 0){
-            val = head.data;
-            head = head.next;
-        }else if(index >= size){
-            return -1;
-        }else{
-            
-        }
-        size--;
-        return val;
-    }
-
     int freq(int key){
         Node temp = head;
         int count =  0;
@@ -126,7 +112,6 @@ public class LinkedList {
         linkedList.insert_end(5);
         linkedList.display();
         System.out.println("\n"+linkedList.freq(1));
-        int deletednum = linkedList.delete(2);
         linkedList.display();
         
 

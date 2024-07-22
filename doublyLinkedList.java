@@ -97,13 +97,15 @@ public class doublyLinkedList {
 
     int deleteAtIndex(int index) {
         Node temp ;
+        int data=0;
         if ((index < 0) || (index >= size)) {
             throw new IndexOutOfBoundsException("Index is out of bounds");
         }
         if (index == 0) {
-            data = head.data;
+            data=head.data;
             head = head.next;
-
+        }
+        return data;
     }
 
     public static void main(String[] args) {
