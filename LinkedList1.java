@@ -100,7 +100,7 @@ class LList{
     }
     
 }
-public class LinkedList {
+public class LinkedList1 {
     public static void main(String[] args) {
         LList linkedList = new LList();
 
@@ -112,7 +112,7 @@ public class LinkedList {
         linkedList.insert_end(5);
         linkedList.display();
         System.out.println("\n"+linkedList.freq(1));
-        linkedList.display();
+        linkedList.display_rev();
         
 
     }

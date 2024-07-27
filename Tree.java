@@ -16,7 +16,6 @@ public class Tree {
     public Tree() {
         this.root = null;
     }
-
     public void insert(int val) {
         root = insertNode(root, val);
     }
@@ -34,7 +33,7 @@ public class Tree {
 
         return root;
     }
-
+ 
     public void inorderTraversal() {
         inorder(root);
         System.out.println();
@@ -67,12 +66,11 @@ public class Tree {
     private void display(TreeNode root, int level) {
         if (root != null) {
             display(root.right, level + 1);
-            for (int i = 0; i < level; i++) {
-                System.out.print("    ");
+            for (int i = 0; i <= level; i++) {
+                System.out.print("     ");
             }
             System.out.println(root.val);
-            display(root.left, level + 1);
-        }
+            display(root.left, level + 1);        }
     }
     public void preorderTraversal() {
         preorder(root);

@@ -1,9 +1,9 @@
-public class Queue {
+public class Queue1 {
     private int[] Queue;
     private int front;
     private int rear;
     private int size;
-    public Queue(int size){
+    public Queue1(int size){
         Queue = new int[size];
         front = -1;
         rear = -1;
@@ -45,7 +45,7 @@ public class Queue {
         return (rear==size-1);
     }
     public static void main(String[] args) {
-        Queue queue = new Queue(10);
+        Queue1 queue = new Queue1(10);
         if(queue.isEmpty()){
             System.out.println("Queue is Empty");
         }
