@@ -1,74 +1,35 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the number of rows: ");
-        int r = sc.nextInt();
-        System.out.print("Enter the number of columns: ");
-        int c = sc.nextInt();
-        int[][] arr = new int[r][c];
-        
-        // Get Elements from the Scanner
-        System.out.println("Enter the elements of the array:");
-        for(int i = 0; i < r; i++){
-            for(int j = 0; j < c; j++){
-                arr[i][j] = sc.nextInt();
-            }
-        }
-        
-        // Print elements of the array
-        System.out.println("Elements of the array:");
-        for (int i = 0; i < c; i++) {
-            System.out.print("[");
-            for (int j = 0; j < r; j++) {
-                if(j==r-1){
-                    System.out.print(arr[i][j]);
-                }else{
-                    System.out.print(arr[i][j] + ", ");
-                }
-            }
-            System.out.print("]");
-            System.out.println();
+
+        int n = sc.nextInt();
+        int[] A = new int[n + 2]; 
+        A[0] = 1; 
+        A[n + 1] = 1;
+
+        for (int i = 1; i <= n; i++) {
+            A[i] = sc.nextInt();
         }
 
-        // Print the diagonal elements
-        System.out.println("Diagonal elements:");
-        for (int i = 0; i < r; i++) {
-            for (int j = 0; j < c; j++) {
-                if(i == j){
-                    System.out.print(arr[i][j] + " ");
-                }
-            }
-        }
-        System.out.println();
+        System.out.println(maxProduct(A, n));
+    }
 
-        // Print alternate elements
-        System.out.println("Alternate elements:");
-        for (int i = 0; i < r; i++) {
-            for (int j = 0; j < c; j++) {
-                if (j == c - i - 1) {
-                    System.out.print(arr[i][j] + " ");
-                }
-            }
-        }
-        System.out.println();
+    public static int maxProduct(int[] A, int n) {
+        int[][] dp = new int[n + 2][n + 2];
 
-        // Transpose of the Matrix
-        System.out.println("Transpose of the matrix:");
-        for (int i = 0; i < c; i++) {
-            
-            System.out.print("[");
-            for (int j = 0; j < r; j++) {
-                if (j == r - 1) {
-                    System.out.print(arr[j][i]);
-                } else {
-                    System.out.print(arr[j][i] + ", ");
+
+        for (int l = 1; l <= n; l++) {
+            for (int i = 1; i <= n - l + 1; i++) {
+                int j = i + l - 1;
+                for (int k = i; k <= j; k++) {
+                    dp[i][j] = Math.max(dp[i][j], dp[i][k - 1] + A[i - 1] * A[k] * A[j + 1] + dp[k + 1][j]);
                 }
             }
-            System.out.print("]");
-            System.out.println();
         }
+
+        return dp[1][n];
     }
 }

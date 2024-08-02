@@ -1,66 +1,106 @@
 import java.util.*;
 
 public class Graph {
-    private  int vertices;
-    private  LinkedList<Integer>[] adjacencyList;
+    private int vertices;
+    private int[][] adjacencyMatrix;
 
     public Graph(int vertices) {
         this.vertices = vertices;
-        adjacencyList = new LinkedList[vertices];
-        for (int i = 0; i < vertices; i++) {
-            adjacencyList[i] = new LinkedList<>();
-        }
+        adjacencyMatrix = new int[vertices][vertices];
     }
 
     public void addEdge(int source, int destination) {
-        adjacencyList[source].add(destination);
+        adjacencyMatrix[source][destination] = 1;
     }
 
-    public void a8search(int startVertex) {
+    public void bfs(int startVertex) {
+        boolean[] visited = new boolean[vertices];
+        Queue<Integer> queue = new LinkedList<>();
+
+        visited[startVertex] = true;
+        queue.add(startVertex);
+
+        boolean isFirst = true;
+        while (!queue.isEmpty()) {
+            int currentVertex = queue.poll();
+            if (isFirst) {
+                System.out.print(currentVertex);
+                isFirst = false;
+            } else {
+                System.out.print("->" + currentVertex);
+            }
+
+            for (int neighbor = 0; neighbor < vertices; neighbor++) {
+                if (adjacencyMatrix[currentVertex][neighbor] == 1 && !visited[neighbor]) {
+                    visited[neighbor] = true;
+                    queue.add(neighbor);
+                }
+            }
+        }
+        System.out.println();
+    }
+
+    public void dfs(int startVertex) {
         boolean[] visited = new boolean[vertices];
         Stack<Integer> stack = new Stack<>();
 
         visited[startVertex] = true;
         stack.push(startVertex);
 
+        boolean isFirst = true;
         while (!stack.isEmpty()) {
             int currentVertex = stack.pop();
-            System.out.print(currentVertex + " ");
+            if (isFirst) {
+                System.out.print(currentVertex);
+                isFirst = false;
+            } else {
+                System.out.print("->" + currentVertex);
+            }
 
-            LinkedList<Integer> neighbors = adjacencyList[currentVertex];
-            for (int neighbor : neighbors) {
-                if (!visited[neighbor]) {
+            for (int neighbor = 0; neighbor < vertices; neighbor++) {
+                if (adjacencyMatrix[currentVertex][neighbor] == 1 && !visited[neighbor]) {
                     visited[neighbor] = true;
                     stack.push(neighbor);
                 }
             }
         }
+        System.out.println();
     }
-    public  void printGraph(){
+
+    public void printGraph() {
         for (int i = 0; i < vertices; i++) {
-            LinkedList<Integer> list = adjacencyList[i];
             System.out.print("Vertex " + i + " is connected to: ");
-            for (int j = 0; j < list.size(); j++) {
-                System.out.print(list.get(j) + " ");
+            for (int j = 0; j < vertices; j++) {
+                if (adjacencyMatrix[i][j] == 1) {
+                    System.out.print(j + " ");
+                }
             }
             System.out.println();
         }
     }
 
     public static void main(String[] args) {
-        Graph graph = new Graph(6);
-        graph.addEdge(0, 1);
-        graph.addEdge(0, 4);
-        graph.addEdge(1, 2);
-        graph.addEdge(1, 3);
-        graph.addEdge(1, 4);
-        graph.addEdge(3, 4);
-        graph.addEdge(4, 5);
-        graph.addEdge(2, 3);
-
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of vertices: ");
+        int vertices = sc.nextInt();
+        System.out.println();
+        Graph graph = new Graph(vertices);
+        System.out.println("Enter the source and destination vertex, or -1 to exit: ");
+        while (true) {
+            int source = sc.nextInt();
+            if (source == -1) {
+                break;
+            }
+            int destination = sc.nextInt();
+            graph.addEdge(source, destination);
+        }
         graph.printGraph();
+        System.out.println("Enter the start index for BFS:");
+        graph.bfs(sc.nextInt());
 
-        System.out.println("DFS traversal starting from vertex 0:");
-        graph.a8search(0);
+        System.out.println("Enter the start index for DFS:");
+        graph.dfs(sc.nextInt());
+
+        sc.close();
     }
 }
