@@ -42,15 +42,6 @@ public class NQueen {
             System.out.println();
         }
     }
-    static void run(String[] args,int count){
-        if(count == 0){
-            main(args);
-            return;
-        }
-        main(args);
-
-        run(args,count-1);
-    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the number of queens: ");
@@ -61,7 +52,6 @@ public class NQueen {
         } else {
             System.out.println("Solution does not exist");
         }
-        run(args, 5);
         }
     }
 
