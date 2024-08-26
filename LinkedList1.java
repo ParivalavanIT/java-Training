@@ -11,9 +11,9 @@ class LList{
     Node tail = null;
     private static int size = 0;
 
-    // Insert the elements at the end of the linked list
+
     void insert_end(int data){
-        Node node = new Node(data); // creating new node
+        Node node = new Node(data); 
         if(head==null){
             head = node;
             tail = node;
@@ -25,7 +25,7 @@ class LList{
         size++;
     }
 
-    // Insert the elements at the begining of the linked list
+
     void insert_begin(int data){
         Node node = new Node(data);
         if(head == null){
@@ -39,7 +39,7 @@ class LList{
         size++;
     }
 
-    // Insert the elements at the particulat index of the linked list
+
     void insert_index(int data, int index){
         if(index == 0){
             insert_begin(data);
