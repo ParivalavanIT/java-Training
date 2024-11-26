@@ -1,7 +1,7 @@
 public class TowerOfHanoi {
     public static void main(String[] args) {
-        int noOfTowers = 10;
-        doTowers(noOfTowers,'A','B','C');
+        int noOfDiscs = 10;
+        doTowers(noOfDiscs,'A','B','C');
     }
     public static void doTowers(int topN,char from,char to,char using){
         if(topN==1){

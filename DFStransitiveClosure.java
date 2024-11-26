@@ -13,7 +13,7 @@ public class DFStransitiveClosure {
             initAdjList(); 
         }
 
-        @SuppressWarnings("unchecked")
+        // @SuppressWarnings("unchecked")
         private void initAdjList() {
             adjList = new ArrayList[vertices];
             for (int i = 0; i < vertices; i++) {

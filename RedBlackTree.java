@@ -69,7 +69,7 @@ public class RedBlackTree {
         return x;
     }
 
-    // Perform a right rotation
+
     private Node rotateRight(Node node) {
         Node x = node.left;
         node.left = x.right;
@@ -79,7 +79,7 @@ public class RedBlackTree {
         return x;
     }
 
-    // Flip the colors of a node and its children
+
     private void flipColors(Node node) {
         node.color = RED;
         node.left.color = BLACK;
